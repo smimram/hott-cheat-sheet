@@ -48,6 +48,10 @@ Subsitutivity: $\textit{transport / subst} : \{A : \mathcal{U}\} \to (P : A \to 
 
 Coercion: $\textit{coe / transport} : (A = B) \to A \to B$. We have $\textit{coe } p \, x = \textit{transport } (\lambda X. \, X) \, p \, x$ and $\textit{transport } b \, p \, \tilde{x} = \textit{coe } (\textit{ap } B \, p) \, \tilde{x}$.
 
+Transporting paths between fucntions : $tr P q p = (ap f q)^{-1} \cdot p \cdot (ap g q)$
+
+Transporting functions : $tr (x. A x \to B x) p f = tr B p \circ f \circ tr A p^{-1}$
+
 \subsection*{Homotopy levels}
 
 A type $A$ is \textbf{contractible} when it satisfies $\textit{isContr } A \, \hat{=} \, \Sigma(x : A).\sqcap(y : A).(x = y)$.
