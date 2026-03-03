@@ -16,13 +16,16 @@
   \Large HoTT cheat sheet
 \end{center}
 
+\noindent
+{\footnotesize Disclaimer: the contents of this note was contributed by students of the course, there is no guarantee of correctness.}
+
 \section*{Dependent types}
 
 $\mathcal{U}$ is the type of all types (the type of \textbf{propositions}). The elements of $\mathcal{U}$ are \textbf{spaces}.
 
 A function $f: A \to \mathcal{U}$ is a \textbf{type family} (Can be seen as a coutinuous family of spaces).
 
-Let $A$ a type and $B: A \to \mathcal{U}$ a type family. \textbf{Dependent functions}: $\sqcap (x:A).B(x)$. It can also be written as $(x:A) \to B(x)$.
+Let $A$ a type and $B: A \to \mathcal{U}$ a type family. \textbf{Dependent functions}: $\Pi(x:A).B(x)$. It can also be written as $(x:A) \to B(x)$.
 
 A dependent sum is a $\bm{\Sigma}$\textbf{-type}: $\Sigma(x:A).B(x)$. It can also be written as $(x:A) \times B(x)$. A such construction forms a \textbf{total space}.
 
