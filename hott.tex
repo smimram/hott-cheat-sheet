@@ -172,7 +172,7 @@ A map $f : A \to B$ is \textbf{injective} when it satisfies $(x \, y : A) \to (f
 
 The non-dependent rules: Type formation: $S^1$. Introduction: $\star : S^1$ and Loop: $\star = \star$. Recursion: $\textit{rec} : (A : \mathcal{U}) \to (a : A) \to (a = a) \to S^1 \to A$. Computation: $\textit{rec } A \, a \, p \, \hat{=} \, a$ and $\textit{ap } (\textit{rec } A \, a \, p) \, \textit{loop } \hat{=} \, p$. Uniqueness: $\textit{rec } S^1 \, \star \, \textit{loop } x = x$.
 
-The depent rules: Type formation: $S^1$. Introduction: $\star : S^1$ and $\textit{loop} : \star = \star$. Elimination: $\textit{elim} : (P : S^1 \to \mathcal{U}) \to (b : P \, \star) \to (\textit{transport } P \textit{ loop } b = b) \to (x : S^1) \to P \, x$. Computation: the function $f \, \hat{=} \, \textit{elim } P \, b \, p \, \star : S^1 \to S^1$ satisfies $f \star \, \hat{=} \, b$ and $\textit{apd } f \textit{ loop } \hat{=} \, p$. Uniqueness: for $f : (x : S^1) \to P \, x$, we have $f \, x = \textit{elim } P \, (f \, \star) \, (\textit{ap } f \textit{ loop}) \, x$.
+The depent rules: Type formation: $S^1$. Introduction: $\star : S^1$ and $\textit{loop} : \star = \star$. Elimination: $\textit{elim} : (P : S^1 \to \mathcal{U}) \to (b : P \, \star) \to (\textit{transport } P \textit{ loop } b = b) \to (x : S^1) \to P \, x$. Computation: the function $f \, \hat{=} \, \textit{elim } (_ \to S^1) \, b \, p : S^1 \to S^1$ satisfies $f \star \, \hat{=} \, b$ and $\textit{apd } f \textit{ loop } \hat{=} \, p$. Uniqueness: for $f : (x : S^1) \to P \, x$, we have $f \, x = \textit{elim } P \, (f \, \star) \, (\textit{ap } f \textit{ loop}) \, x$.
 
 \textbf{Lemma}: given a type $A$, we have $S^1 \to A \simeq \Sigma(x : A).(x = x)$.
 
