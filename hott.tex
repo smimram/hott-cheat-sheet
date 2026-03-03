@@ -32,7 +32,7 @@ A type $t = u$ of proofs that $t$ is the same as $u$ (equalities/identities/path
 
 A constructor $\textit{refl } : (x : A) \to x = x$.
 
-An eliminator $J : (A : \mathcal{U}) \to (x : A) \to (P : (y : A) \to x = u \to \mathcal{U}) \to P \, x \, (\textit{refl } x) \to (y : A) \to (p : x = y) \to P \, y \, p$
+An eliminator $J : (A : \mathcal{U}) \to (x : A) \to (P : (y : A) \to x = y \to \mathcal{U}) \to P \, x \, (\textit{refl } x) \to (y : A) \to (p : x = y) \to P \, y \, p$
 
 A computation $J \, A \, x \, P \, r \, x \, (\textit{refl } x) \, \hat{=} \, r$.
 
@@ -76,7 +76,7 @@ A type $A$ is \textbf{connected} when it satisfies $(x \, y : A) \to || x = y ||
 
 A type $A$ is a \textbf{set} when it satisfies $\textit{isSet } A \, \hat{=} \, (x \, y : A) \to \textit{isProp }(x = y)$.
 
-\textbf{Lemma}: any \textit{proposition} $A$ is a \textit{set}: $\textit{isProp } A \to \textit{isSet } A$. Alos, being a \textit{set} is a \textit{proposition}: $\textit{isProp }(\textit{isSet } A)$.
+\textbf{Lemma}: any \textit{proposition} $A$ is a \textit{set}: $\textit{isProp } A \to \textit{isSet } A$. Also, being a \textit{set} is a \textit{proposition}: $\textit{isProp }(\textit{isSet } A)$.
 
 The following types are \textit{sets}: $0$ and $1$ and \textit{Bool} and $\mathbb{N}$ and \textit{HProp}. The types $S^n, n > 0$ are \textbf{not }\textit{sets}.
 
