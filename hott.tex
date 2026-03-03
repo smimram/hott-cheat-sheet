@@ -4,17 +4,19 @@
 \usepackage{lmodern}
 \usepackage{amsfonts,amssymb,amsmath}
 \usepackage{bm}
-\usepackage{geometry}
-\geometry{hmargin=0.5cm,vmargin=0.5cm}
+\usepackage[hmargin=2cm,vmargin=2cm]{geometry}
 \setlength{\parindent}{0em}
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{1ex plus .2ex minus .2ex}{0.8ex plus .2ex}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
 
 \begin{document}
 
 \begin{center}
-  \Large HoTT cheat sheet (a first attempt, to be improved)
+  \Large HoTT cheat sheet
 \end{center}
 
-\subsection*{Dependent types}
+\section*{Dependent types}
 
 $\mathcal{U}$ is the type of all types (the type of \textbf{propositions}). The elements of $\mathcal{U}$ are \textbf{spaces}.
 
@@ -24,13 +26,13 @@ Let $A$ a type and $B: A \to \mathcal{U}$ a type family. \textbf{Dependent funct
 
 A dependent sum is a $\bm{\Sigma}$\textbf{-type}: $\Sigma(x:A).B(x)$. It can also be written as $(x:A) \times B(x)$. A such construction forms a \textbf{total space}.
 
-\subsection*{Identity types}
+\section*{Identity types}
 
 A type $t = u$ of proofs that $t$ is the same as $u$ (equalities/identities/paths) such that $- = - : (A : \mathcal{U}) \to A \to A \to \mathcal{U}$.
 
 A constructor $\textit{refl } : (x : A) \to x = x$.
 
-An eliminator $J : (A : \mathcal{U}) \to (x : A) \to (P : (y : A) \to x = u \to \mathcal{U}) \to P \, x \, (\textit{refl } x) \to (y : A) \to (p : x = y) \to P \, y \, p$
+An eliminator $J : (A : \mathcal{U}) \to (x : A) \to (P : (y : A) \to x = y \to \mathcal{U}) \to P \, x \, (\textit{refl } x) \to (y : A) \to (p : x = y) \to P \, y \, p$
 
 A computation $J \, A \, x \, P \, r \, x \, (\textit{refl } x) \, \hat{=} \, r$.
 
@@ -38,7 +40,7 @@ We interpret, a type $A$ as a \textbf{space}, a term $t : A$ as a \textbf{point}
 
 Given points $x,y:A$ and paths $p,q: x=y$, we can consider the type $p=q$ whose points are \textbf{homotopies} between $p$ and $q$, i.e. continuous deformations form $p$ to $q$, i.e. maps $\alpha : I \to I \to A$ with $\alpha \, 0 \, \hat{=} \, p$ and $\alpha \, 1 \, \hat{=} \, q$ and $\alpha \, t \, 0 \, \hat{=} \, x$ and $\alpha \, t \, 1 \, \hat{=} \, y$.
 
-\subsection*{Operations on identity types}
+\section*{Operations on identity types}
 
 Symmetry: $p^-(t) \, \hat{=} \, p(1 - t)$, defined as $sym : (x : A) \to (y : A) \to (x = y) \to (y = x)$ is the function $x \mapsto J \, A \, x \, (\lambda y \, p. \, y = x) \textit{ refl}$.
 
@@ -52,7 +54,7 @@ Transporting paths between fucntions : $tr P q p = (ap f q)^{-1} \cdot p \cdot (
 
 Transporting functions : $tr (x. A x \to B x) p f = tr B p \circ f \circ tr A p^{-1}$
 
-\subsection*{Homotopy levels}
+\section*{Homotopy levels}
 
 A type $A$ is \textbf{contractible} when it satisfies $\textit{isContr } A \, \hat{=} \, \Sigma(x : A).\sqcap(y : A).(x = y)$.
 
@@ -78,7 +80,7 @@ A type $A$ is \textbf{connected} when it satisfies $(x \, y : A) \to || x = y ||
 
 A type $A$ is a \textbf{set} when it satisfies $\textit{isSet } A \, \hat{=} \, (x \, y : A) \to \textit{isProp }(x = y)$.
 
-\textbf{Lemma}: any \textit{proposition} $A$ is a \textit{set}: $\textit{isProp } A \to \textit{isSet } A$. Alos, being a \textit{set} is a \textit{proposition}: $\textit{isProp }(\textit{isSet } A)$.
+\textbf{Lemma}: any \textit{proposition} $A$ is a \textit{set}: $\textit{isProp } A \to \textit{isSet } A$. Also, being a \textit{set} is a \textit{proposition}: $\textit{isProp }(\textit{isSet } A)$.
 
 The following types are \textit{sets}: $0$ and $1$ and \textit{Bool} and $\mathbb{N}$ and \textit{HProp}. The types $S^n, n > 0$ are \textbf{not }\textit{sets}.
 
@@ -94,7 +96,7 @@ $|| A ||_0$ is for \textbf{set truncation}. Introduction rules, $|-|_0 : A \to |
 
 A \textbf{groupoid} is a type which has sets of paths $\textit{isGroupoid } A \, \hat{=} \, (x \, y : A) \to \textit{isSet }(x = y)$.
 
-\subsection*{Equivalences}
+\section*{Equivalences}
 
 A \textbf{homotopy} $\alpha$ between two functions $f \, g : (x : A) \to B \, x$ is a function of type $(f \sim g) \, \hat{=} \, (x : A) \to f \, x \to g \, x$.
 
@@ -119,7 +121,7 @@ We have $A \simeq A$ and $A \simeq B \to B \simeq A$ and $A \simeq B \wedge B \s
 
 We have $(X \to A \times B) \simeq (X \to A) \times (X \to B)$ and $(A \sqcup B  \to X) \simeq (A \to X) \times (B \to X)$.
 
-\subsection*{Univalence}
+\section*{Univalence}
 
 \textbf{Lemma}: $\textit{idtoequiv} : (A = B) \to (A \simeq B)$. In addition, $\textit{idtoequiv }(p) \, \hat{=} \, (\textit{coe}(p), \, \textit{eq}(p))$. \textbf{Axiom}: $\textit{isEquiv }(\textit{idtoequiv})$.
 
@@ -129,7 +131,7 @@ Elimination: $\textit{idtoequiv} : (A = B) \to (A \simeq B)$. Introduction: $\te
 
 \textbf{Lemma}: \textit{decidable} \textit{propositions} are booleans.
 
-\subsection*{Function extensionality}
+\section*{Function extensionality}
 
 Given $f \, g : A \to B$, we have a canonical map $\textit{happly} : (f = g) \to (x : A) \to f \, x = g \, x$ defined by path induction $\textit{happly } \textit{refl } \hat{=} \, \lambda x. \textit{ refl}$.
 
@@ -141,7 +143,7 @@ Elimination: $\textit{happly} : (f = g) \to (f \sim g)$. Introduction: $\textit{
 
 \textbf{Weak function extensionality}: $((x : A) \to \textit{isContr}(B \, x)) \to \textit{isContr}((x : A) \to B \, x)$ for $A : \mathcal{U}$ and $B : A \to \mathcal{U}$.
 
-\subsection*{More equivalences}
+\section*{More equivalences}
 
 A \textbf{half-adoint equivalence} is a map $f : A \to B$ such that there exists $\textit{isHAE}(f) \, \hat{=} \, \Sigma(g : B \to A).\Sigma(\eta : g \circ f \sim \textit{id}).\Sigma(\epsilon : f \circ g \textit{id}). f \, \eta \sim \epsilon \, f$.
 
@@ -165,7 +167,7 @@ A morphism $f : A \to B$ is \textbf{split surjection} when it satisfies $\sqcap 
 
 A map $f : A \to B$ is \textbf{injective} when it satisfies $(x \, y : A) \to (f \, x = f \, y) \to (x = y)$.
 
-\subsection*{The circle}
+\section*{The circle}
 
 The non-dependent rules: Type formation: $S^1$. Introduction: $\star : S^1$ and Loop: $\star = \star$. Recursion: $\textit{rec} : (A : \mathcal{U}) \to (a : A) \to (a = a) \to S^1 \to A$. Computation: $\textit{rec } A \, a \, p \, \hat{=} \, a$ and $\textit{ap } (\textit{rec } A \, a \, p) \, \textit{loop } \hat{=} \, p$. Uniqueness: $\textit{rec } S^1 \, \star \, \textit{loop } x = x$.
 
@@ -191,7 +193,7 @@ We can defined $\textit{encode} : (x : S^1) \to (\star = x) \to \textit{Code } x
 
 Hence, we have $\textit{decode } x (\textit{encode } x \, p) = p$ and $\textit{encode } x \, (\textit{decode } x \, n) = n$. \textbf{Theorem}: we have a group isomorphism $\pi_1 S^1 \simeq \mathbb{Z}$.
 
-\subsection*{The fundamental duality}
+\section*{The fundamental duality}
 
 Any function $f : A \to B$ induces a \textbf{fiber} function $\textit{fib } f : B \to \mathcal{U}$ defined by $\textit{fib } f \, y \, \hat{=} \, \Sigma(x : A).(f \, x = y)$.
 
@@ -211,7 +213,7 @@ Any type family $P : B \to \mathcal{U}$ induces a map $\textit{total } P : (\Sig
 
 \textbf{Theorem}: A map $f : A \to B$ is an \textit{embedding} $\iff$ $\textit{fib } f \, x$ is a \textit{proposition} for every $x : A$.
 
-\subsection*{Cubical type theory}
+\section*{Cubical type theory}
 
 New type $I$ for the \textbf{interval} with two constructors: $i_0 : I$ and $i_1 : I$. A path in $A$ is now a function $I \to A$.
 
@@ -251,7 +253,7 @@ Composition is unital on the left. We obtain $f : (i : I) \, (j : I) \, (k : I) 
 
 We can also show that composition is cancellative on the right.
 
-\subsection*{Higher inductive types}
+\section*{Higher inductive types}
 
 An \textbf{inductive type} $A$ is the smallest type closed under some formal operations.
 
