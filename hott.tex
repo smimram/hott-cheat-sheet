@@ -96,25 +96,22 @@ A \textbf{groupoid} is a type which has sets of paths $\textit{isGroupoid } A \,
 
 \subsection*{Equivalences}
 
+A \textbf{homotopy} $\alpha$ between two functions $f \, g : (x : A) \to B \, x$ is a function of type $(f \sim g) \, \hat{=} \, (x : A) \to f \, x \to g \, x$.
+
+Naturality : given functions $f \, g : A \to B$, \textit{homotopy} $\alpha : f \sim g$ and equality $p : x = y$ in $A$, we have $\alpha \, x \cdot \textit{ap } g \, p = \textit{ap } f \, p \cdot \alpha \, y$.
+
+For a map $f : A \to B$, a \textbf{quasi-inverse} is $g : B \to A$ such that $g \circ f \sim \textit{id}_A$ and $f \circ g \sim \textit{id}_B$. We write $\textit{hasQInv(f) } \hat{=} \, \Sigma(g : B \to A).(g \circ f \sim \textit{id}_A) \times (f \circ g \sim \textit{id}_B)$.
+
 A map $f : A \to B$ is an \textbf{isomorphism} when there exists $g : B \to A$ such that $g \circ f = \textit{id}_A$ and $f \circ g = \textit{id}_B$.
 
 A map $f : A \to B$ is \textbf{quasi-invertible} when there exists $g : B \to A$ such that $g \circ f \sim \textit{id}_A$ and $f \circ g \sim \textit{id}_B$.
 
 A map $f : A \to B$ is \textbf{bi-invertible} when there exists $g : B \to A$ and $g' : B \to A$ such that $g \circ f \sim \textit{id}_A$ and $f \circ g' \sim \textit{id}_B$.
-
-A \textbf{homotopy} $\alpha$ between two functions $f \, g : (x : A) \to B \, x$ is a function of type $(f \sim g) \, \hat{=} \, (x : A) \to f \, x \to g \, x$.
-
-\textit{Homotopy} is an equivalence relation: reflexivity $f \sim f$ and symmetry $f \sim g \to g \sim f$ and transitivity $f \sim g \to g \sim h \to f \sim h$.
-
-Given functions $f \, g : A \to B$, \textit{homotopy} $\alpha : f \sim g$ and equality $p : x = y$ in $A$, we have $\alpha \, x \cdot \textit{ap } g \, p = \textit{ap } f \, p \cdot \alpha \, y$.
-
-For a map $f : A \to B$, a \textbf{quasi-inverse} is $g : B \to A$ such that $g \circ f \sim \textit{id}_A$ and $f \circ g \sim \textit{id}_B$. We write $\textit{hasQInv(f) } \hat{=} \, \Sigma(g : B \to A).(g \circ f \sim \textit{id}_A) \times (f \circ g \sim \textit{id}_B)$.
-
-A \textbf{half-adjoint equivalence} is a map $f : A \to B$ such that there exists $g : B \to A$, $\eta : g \circ f \sim \textit{id}_A$, $\epsilon : f \circ g \sim \textit{id}_B$ and $f \, \eta \sim \epsilon \, f$.
-
-A map $f : A \to B$ is a \textbf{bi-invertible equivalence} where there are $g : B \to A$ ands $h : B \to A$ such that $g \circ f \sim \textit{id}_A$ and $f \circ h \sim \textit{id}_B$. We write $\textit{isEquiv(f) } \hat{=} \, \Sigma(g : B \to A).(g \circ f \sim \textit{id}_A) \times \Sigma(h : B \to A).(f \circ h \sim \textit{id}_B)$.
+We write $\textit{isEquiv(f) } \hat{=} \, \Sigma(g : B \to A).(g \circ f \sim \textit{id}_A) \times \Sigma(h : B \to A).(f \circ h \sim \textit{id}_B)$.
 
 \textbf{Theorem}: being a \textit{bi-invertible equivalence} is a \textit{proposition}: $\textit{isProp }(\textit{isEquiv }(f))$. Also, $\textit{hasQInv }(f)$ is equivalent to $\textit{isEquiv }(f)$.
+
+A \textbf{half-adjoint equivalence} is a map $f : A \to B$ such that there exists $g : B \to A$, $\eta : g \circ f \sim \textit{id}_A$, $\epsilon : f \circ g \sim \textit{id}_B$ and $f \, \eta \sim \epsilon \, f$.
 
 We have $A \simeq A$ and $A \simeq B \to B \simeq A$ and $A \simeq B \wedge B \simeq C \to A \simeq C$. Also, if $A \simeq A'$ and $B \simeq B'$ then $A \times B \simeq A' \times B'$.
 
